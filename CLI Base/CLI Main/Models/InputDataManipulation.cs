@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CLI.Main.Utils.Exceptions;
 
 namespace CLI.Main.Models
 {
@@ -21,7 +22,7 @@ namespace CLI.Main.Models
 
 
             if (inputData.Length < 3)
-                throw new Exception("Invalid query");
+                throw new InvalidQueryException("Invalid number of parameters");
 
             return new()
             {

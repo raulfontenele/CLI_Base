@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CLI.Main.Utils.Exceptions;
 
 namespace CLI.Main.Controller
 {
@@ -14,10 +15,11 @@ namespace CLI.Main.Controller
         {
             { "meter", new MeterAction() },
             { "tools", new ToolsAction() },
+            { "quit", new ToolsAction() },
         };
         public IAction GetActionRoute(string actionName)
         {
-            return actionsRoutes.ContainsKey(actionName) ? actionsRoutes[actionName] : null;
+            return actionsRoutes.ContainsKey(actionName) ? actionsRoutes[actionName] : throw new InvalidQueryException("Action not found");
         }
     }
 }

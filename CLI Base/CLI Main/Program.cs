@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CLI.Main.Controller;
 using CLI.Main.Interfaces;
 using CLI.Main.Models;
+using CLI.Main.Utils.Exceptions;
 
 namespace CLI.Main
 {
@@ -13,20 +14,40 @@ namespace CLI.Main
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Intrução:");
-            string text = Console.ReadLine();
+            RouteController route = new();
 
-            InputDataManipulation iData = new InputDataManipulation();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Intrução:");
+                    string text = Console.ReadLine();
 
-            var responde = iData.InputManipulation(text);
+                    InputDataManipulation iData = new InputDataManipulation();
 
-            IAction action = Routes.ActionsRoutes[responde.ActionType];
+                    var responde = iData.InputManipulation(text);
 
-            action.Action(responde.ActionName, responde.Parameters);
+                    IAction action = route.GetActionRoute(responde.ActionType);
 
-            Console.WriteLine();
+                    action.Action(responde.ActionName, responde.Parameters);
 
-            Console.ReadLine();
+                    Console.ReadLine();
+                }
+                catch (InvalidQueryException e)
+                {
+                    Console.WriteLine($"Invalid Query :: {e.Message}");
+                }
+                catch (BreakProgramExpection)
+                {
+                    break;
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+            }
+            
 
 
             

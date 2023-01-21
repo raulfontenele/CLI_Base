@@ -1,4 +1,5 @@
 ﻿using CLI.Main.Interfaces;
+using CLI.Main.Utils.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CLI.Main.Models.Actions
     {
         public void Action(string actionName, params string[] parameters)
         {
-            break;
+            throw new BreakProgramExpection();
         }
     }
 }

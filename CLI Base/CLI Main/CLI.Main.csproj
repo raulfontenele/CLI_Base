@@ -49,6 +49,8 @@
     <Compile Include="Models\InputDataManipulation.cs" />
     <Compile Include="Models\Response\ResponseTypes.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Utils\Exceptions\BreakProgramExpection.cs" />
+    <Compile Include="Utils\Exceptions\InvalidQueryException.cs" />
     <Compile Include="Utils\Extensions.cs" />
   </ItemGroup>
   <ItemGroup />
