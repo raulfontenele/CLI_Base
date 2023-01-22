@@ -14,6 +14,21 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <LangVersion>preview</LangVersion>
@@ -41,18 +56,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RouteController.cs" />
+    <Compile Include="Controller\Routes.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IDataInput.cs" />
+    <Compile Include="Interfaces\IRoutes.cs" />
+    <Compile Include="Models\Actions\ClearAction.cs" />
     <Compile Include="Models\Actions\MeterAction.cs" />
     <Compile Include="Models\Actions\QuitAction.cs" />
     <Compile Include="Models\Actions\ToolsAction.cs" />
     <Compile Include="Models\InputDataManipulation.cs" />
     <Compile Include="Models\Response\ResponseTypes.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Utils\Display.cs" />
     <Compile Include="Utils\Exceptions\BreakProgramExpection.cs" />
     <Compile Include="Utils\Exceptions\InvalidQueryException.cs" />
     <Compile Include="Utils\Extensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

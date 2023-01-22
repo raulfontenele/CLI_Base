@@ -11,15 +11,16 @@ namespace CLI.Main.Controller
 {
     public class RouteController
     {
-        private static Dictionary<string, IAction> actionsRoutes = new()
+        IRoutes _routes;
+
+        public RouteController(IRoutes routes)
         {
-            { "meter", new MeterAction() },
-            { "tools", new ToolsAction() },
-            { "quit", new ToolsAction() },
-        };
+            _routes = routes;
+        }
+
         public IAction GetActionRoute(string actionName)
         {
-            return actionsRoutes.ContainsKey(actionName) ? actionsRoutes[actionName] : throw new InvalidQueryException("Action not found");
+            return _routes.GetRoutes(actionName);
         }
     }
 }
