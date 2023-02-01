@@ -41,15 +41,19 @@ namespace CLI.Main.Utils
         }
         public static void PrintErrorMessage(string message)
         {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine(message);
-            Console.ResetColor();
+            PrintColorMessage(message, ConsoleColor.DarkRed);
         }
         public static void PrintSucessMessage(string message)
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine(message);
-            Console.ResetColor();
+            PrintColorMessage(message, ConsoleColor.DarkGreen);
+        }
+        public static void SetApplicationTitle(string title)
+        {
+            Console.Title = $"CLI Base :: Version = {title}";
+        }
+        private static void PrintColorMessage(string message, ConsoleColor color)
+        {
+            WriteColor(String.Concat("[", message, "]"), ConsoleColor.DarkGreen);
         }
 
         private static void WriteColor(string message, ConsoleColor color)
@@ -72,5 +76,7 @@ namespace CLI.Main.Utils
 
             Console.WriteLine();
         }
+
+        
     }
 }

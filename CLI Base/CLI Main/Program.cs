@@ -17,6 +17,8 @@ namespace CLI.Main
         {
             RouteController route = new(new Routes());
 
+            Display.SetApplicationTitle(ApplicationParameters.GetVersion());
+
             while (true)
             {
                 try 

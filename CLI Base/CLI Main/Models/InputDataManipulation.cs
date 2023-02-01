@@ -18,11 +18,11 @@ namespace CLI.Main.Models
             string[] inputData = input.Split(' ');
 
             if (inputData.Length == 1)
-                return new ResponseTypes(inputData[0]);
+                return new ResponseTypes(inputData[0], "", new string[0]);
 
 
-            if (inputData.Length < 3)
-                throw new InvalidQueryException("Invalid number of parameters");
+            //if (inputData.Length < 3)
+            //    throw new InvalidQueryException("Invalid number of parameters");
 
             return new()
             {

@@ -55,6 +55,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationParameters.cs" />
     <Compile Include="Controller\RouteController.cs" />
     <Compile Include="Controller\Routes.cs" />
     <Compile Include="Interfaces\IAction.cs" />

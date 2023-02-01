@@ -12,7 +12,7 @@ namespace CLI.Main.Models.Actions
     {
         public void Action(string actionName, params string[] parameters)
         {
-            Display.PrintMessage("Action de clear acionada");
+            Display.PrintSucessMessage("Action de clear acionada");
         }
     }
 }

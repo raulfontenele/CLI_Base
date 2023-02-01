@@ -12,10 +12,6 @@ namespace CLI.Main.Models.Response
         public string ActionName;
         public string[] Parameters;
 
-        public ResponseTypes(string actionType)
-        {
-            ActionType = actionType;
-        }
         public ResponseTypes(string actionType, string actionName, string[] parameters)
         {
             ActionType = actionType;
